@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-    populateCompany: async function () {
+    populateCompany: function () {
         // GET request to Random User API for 75 users
         return fetch('https://randomuser.me/api/?results=75')
             .then(response => {

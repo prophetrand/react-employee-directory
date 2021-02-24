@@ -12,15 +12,14 @@ function App() {
   }, []);
 
   function loadCompany() {
-    API.populateCompany()
-      .then((employees) => {
-        setWork(employees);
-      });
+    API.populateCompany().then((res) => {
+      setWork(res);
+    });
   }
 
   return (
     <div>
-      <p>Hello Leia</p>
+      <p>Hello Doggy</p>
     </div>
   );
 }
