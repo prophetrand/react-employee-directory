@@ -34,13 +34,15 @@ function App() {
       <Header filterTime={filterTime} />
       <main>
         {/* wrap Table component in work.map function, still pass props in the same way */}
-        <Table
-          key={work.id}
-          name={work.name}
-          email={work.email}
-          phone={work.phone}
-          picture={work.picture}
-        />
+        {work.map((emps) => (
+          <Table
+            key={emps.id}
+            name={emps.name}
+            email={emps.email}
+            phone={emps.phone}
+            picture={emps.picture}
+          />
+        ))}
         <ul>
           {work.map((guys) => {
             return <li key={guys.id}>{guys.name}</li>
