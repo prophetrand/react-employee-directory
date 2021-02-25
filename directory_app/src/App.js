@@ -5,9 +5,10 @@ import Table from './components/Table';
 import './App.css';
 
 function App() {
-  // setting state getter and setter with useState hook. Default state value here is an empty array.
+  // setting state getter and setter with useState hook. Default state value for "work" is an empty array, and for "filter" and "sort" the default is an empty string.
   const [work, setWork] = useState([]);
   const [filter, setFilter] = useState("");
+  // const [sort, setSort] = useState("");
 
   useEffect(() => {
     loadCompany();
@@ -16,13 +17,19 @@ function App() {
   function loadCompany() {
     API.populateCompany().then((res) => {
       setWork(res);
-    });
+    }).catch(err => console.log(err));
   }
 
   const filterTime = event => {
-    setFilter(event.target.value);
-    console.log(filter);
-    // there might be an issue here as the console.log is always one step (character) behind the input
+    const { value } = event.target;
+    console.log(value);
+
+    setFilter(value);
+
+    let newArr = work.filter(emps => {
+      return emps.name.toLowerCase().includes(filter);
+    });
+    setWork(newArr);
   }
 
   // const sortTime = () => {
@@ -33,23 +40,13 @@ function App() {
     <div>
       <Header filterTime={filterTime} />
       <main>
-        {/* wrap Table component in work.map function, still pass props in the same way */}
-        {work.map((emps) => (
-          <Table
-            key={emps.id}
-            name={emps.name}
-            email={emps.email}
-            phone={emps.phone}
-            picture={emps.picture}
-          />
-        ))}
-        <ul>
-          {work.map((guys) => {
-            return <li key={guys.id}>{guys.name}</li>
-          })}
-        </ul>
+        <Table 
+          work={work}
+          filterTime={filterTime}
+          // sort={sort}
+          // sortTime={sortTime}
+        />
       </main>
-
     </div>
   );
 }

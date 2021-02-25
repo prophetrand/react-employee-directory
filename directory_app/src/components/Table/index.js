@@ -1,29 +1,30 @@
 import React from "react";
+import TableRow from "../TableRow"
 import "./style.css"
 
 function Table(props) {
     return (
-        <div>Table Here
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Picture</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img src={props.picture} alt={props.name} /></td>
-                        <td>{props.name}</td>
-                        <td>{props.email}</td>
-                        <td>{props.phone}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+        <table className="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {props.work.map((emps) => (
+                    <TableRow
+                        key={emps.id}
+                        name={emps.name}
+                        email={emps.email}
+                        phone={emps.phone}
+                        picture={emps.picture}
+                    />
+                ))}
+            </tbody>
+        </table>
     )
 }
 
