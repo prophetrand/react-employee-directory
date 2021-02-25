@@ -1,6 +1,4 @@
-import axios from "axios";
-
-export default {
+let API = {
     populateCompany: function () {
         // GET request to Random User API for 75 users
         return fetch('https://randomuser.me/api/?results=75')
@@ -14,7 +12,7 @@ export default {
                         name: `${emp.name.first} ${emp.name.last}`,
                         phone: emp.phone,
                         email: emp.email,
-                        id: emp.id.value,
+                        id: emp.login.md5,
                         picture: emp.picture.thumbnail
                     }
                 });
@@ -24,23 +22,6 @@ export default {
                 console.log(error);
             });
     }
-
-    // populateCompany: function () {
-    //     return new Promise((resolve, reject) => {
-    //         // GET request to Random User API for 75 users
-    //         axios.get("https://randomuser.me/api/?results=75").then((response) => {
-    //             let workforce = response.data.results.map((emp) => {
-    //                 return {
-    //                     name: `${emp.name.first} ${emp.name.last}`,
-    //                     phone: emp.phone,
-    //                     email: emp.email,
-    //                     id: emp.id.value,
-    //                     picture: emp.picture.thumbnail
-    //                 };
-    //             });
-    //             resolve(workforce);
-    //         }).catch((err) => reject(err));
-    //     });
-    // }
-
 }
+
+export default API;

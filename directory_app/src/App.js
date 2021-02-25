@@ -8,7 +8,6 @@ function App() {
 
   useEffect(() => {
     loadCompany();
-    console.log(work);
   }, []);
 
   function loadCompany() {
@@ -18,9 +17,11 @@ function App() {
   }
 
   return (
-    <div>
-      <p>Hello Doggy</p>
-    </div>
+    <ul>
+      {work.map((guys) => {
+        return <li key={guys.id}>{guys.name}</li>
+      })}
+    </ul>
   );
 }
 
