@@ -25,11 +25,6 @@ function App() {
     console.log(value);
 
     setFilter(value);
-
-    let newArr = work.filter(emps => {
-      return emps.name.toLowerCase().includes(filter);
-    });
-    setWork(newArr);
   }
 
   // const sortTime = () => {
@@ -42,7 +37,7 @@ function App() {
       <main>
         <Table 
           work={work}
-          filterTime={filterTime}
+          filter={filter}
           // sort={sort}
           // sortTime={sortTime}
         />

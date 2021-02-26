@@ -3,8 +3,15 @@ import TableRow from "../TableRow"
 import "./style.css"
 
 function Table(props) {
+
+    let searched = props.work;
+    searched = searched.filter(emp => {
+        return emp.name.toLowerCase().includes(props.filter.toLowerCase());
+    });
+
+
     return (
-        <table className="table table-dark">
+        <table className="table table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">Picture</th>
@@ -14,7 +21,7 @@ function Table(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.work.map((emps) => (
+                {searched.map((emps) => (
                     <TableRow
                         key={emps.id}
                         name={emps.name}
