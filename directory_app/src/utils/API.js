@@ -13,7 +13,7 @@ let API = {
                         phone: emp.phone,
                         email: emp.email,
                         id: emp.login.md5,
-                        picture: emp.picture.thumbnail
+                        picture: emp.picture.medium
                     }
                 });
                 return workforce;

@@ -3,7 +3,6 @@
     min-height: 70px;
     color: antiquewhite;
     font-family:'Courier New', Courier, monospace;
-    /* margin-bottom: 2rem; */
 }
 
 .navbar p {
@@ -12,7 +11,7 @@
 
 header {
     width: 100%;
-    min-height: 200px;
+    min-height: 250px;
     background-color: rgb(3, 3, 80);
     text-align: center;
     padding: 30px;
