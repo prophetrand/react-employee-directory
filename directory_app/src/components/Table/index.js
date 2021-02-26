@@ -15,7 +15,7 @@ function Table(props) {
             <thead>
                 <tr>
                     <th scope="col">Picture</th>
-                    <th scope="col">Name</th>
+                    <th scope="col" data-toggle={props.sort} onClick={props.sortTime}>Name {props.symbol}</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                 </tr>
