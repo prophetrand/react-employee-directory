@@ -4,6 +4,7 @@ import "./style.css"
 
 function Table(props) {
 
+    // Using a unique variable to employ a pure function rather than directly filtering the work array.
     let searched = props.work;
     searched = searched.filter(emp => {
         return emp.name.toLowerCase().includes(props.filter.toLowerCase());

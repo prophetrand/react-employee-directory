@@ -8,7 +8,8 @@ function App() {
   const [work, setWork] = useState([]);
   const [filter, setFilter] = useState("");
   const [sort, setSort] = useState("");
-  const [symbol, setSymbol]= useState('(Click here to sort)')
+  const [symbol, setSymbol] = useState('(Click here to sort)');
+
   useEffect(() => {
     loadCompany();
   }, []);
@@ -28,7 +29,7 @@ function App() {
 
   const sortTime = e => {
     let nameSort = e.target.getAttribute("data-toggle");
-    
+
     switch (nameSort) {
       case "alphabetical":
         setWork(work.sort((first, second) => (first.name < second.name) ? 1 : -1));
@@ -51,7 +52,7 @@ function App() {
     <div>
       <Header filterTime={filterTime} />
       <main>
-        <Table 
+        <Table
           work={work}
           filter={filter}
           sort={sort}
